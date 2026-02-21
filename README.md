@@ -29,16 +29,19 @@ The system consists of the following main tables:
 ## 🚀 Setup Instructions
 ### 1️⃣ Run Schema File
 SOURCE schema.sql;
+
 This will:
 - Create university_db
 - Create all tables with constraints
 
 ### 2️⃣ Insert Sample Data
 SOURCE seed.sql;
+
 This will populate the database with test records.
 
 ### 3️⃣ Run Performance Analysis
 SOURCE performance.sql;
+
 This will:
 - Run EXPLAIN ANALYZE before indexing
 - Create indexes
@@ -46,7 +49,9 @@ This will:
 
 ## 📊 Performance Optimization
 The project demonstrates query optimization using:
+
 🔹 Single-Column Indexes
+
 🔹 Composite Indexes
 
 ## 📈 Performance Analysis Results
