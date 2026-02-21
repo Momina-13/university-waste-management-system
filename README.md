@@ -45,8 +45,8 @@ This will:
 
 ## 📊 Performance Optimization
 The project demonstrates query optimization using:
--🔹 Single-Column Indexes
--🔹 Composite Indexes
+🔹 Single-Column Indexes
+🔹 Composite Indexes
 
 ## 📈 Performance Analysis Results
 Using EXPLAIN ANALYZE, the following improvements were observed:
@@ -71,7 +71,17 @@ The database ensures:
 - **Isolation** – Concurrent transactions do not interfere
 - **Durability** – Committed data persists even after system failure
 
+## 🎯 Key Learning Outcomes
+- Relational schema design
+- Foreign key implementation
+- Query optimization
+- Index creation strategies
+- Execution plan analysis using EXPLAIN ANALYZE
+- Understanding ACID properties in MySQL
 
+## 👨‍💻 Author
+University Database Systems Project
+MySQL 8.0 Implementation
 
 
 
