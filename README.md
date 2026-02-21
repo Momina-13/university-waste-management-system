@@ -80,8 +80,8 @@ The database ensures:
 - Understanding ACID properties in MySQL
 
 ## 👨‍💻 Author
-University Database Systems Project
-MySQL 8.0 Implementation
+- University Database Systems Project
+- MySQL 8.0 Implementation
 
 
 
