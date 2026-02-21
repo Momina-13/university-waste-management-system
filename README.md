@@ -45,8 +45,8 @@ This will:
 
 ## 📊 Performance Optimization
 The project demonstrates query optimization using:
-🔹 Single-Column Indexes
-🔹 Composite Indexes
+-🔹 Single-Column Indexes
+-🔹 Composite Indexes
 
 ## 📈 Performance Analysis Results
 Using EXPLAIN ANALYZE, the following improvements were observed:
@@ -66,10 +66,10 @@ This confirms that proper indexing significantly enhances database performance a
 
 ## 🔐 ACID Compliance
 The database ensures:
-- ###Atomicity – Transactions complete fully or not at all
-- ###Consistency – Constraints maintain valid data states
-- ###Isolation – Concurrent transactions do not interfere
-- ###Durability – Committed data persists even after system failure
+- **Atomicity** – Transactions complete fully or not at all
+- **Consistency** – Constraints maintain valid data states
+- **Isolation** – Concurrent transactions do not interfere
+- **Durability** – Committed data persists even after system failure
 
 
 
