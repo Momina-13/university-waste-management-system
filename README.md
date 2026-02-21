@@ -7,6 +7,7 @@ The University Waste Management System (UWMS) is a comprehensive software soluti
 3) dustbin monitoring
 4) worker management
 5) workflow automation.
+
 This system improves cleanliness, operational efficiency, workforce management and real time monitoring of waste related activities.
 
 ## 🛠️ Technologies Used
