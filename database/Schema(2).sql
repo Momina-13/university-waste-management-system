@@ -354,3 +354,15 @@ CREATE INDEX idx_mr_status ON maintenance_request(maintenance_status_id);
 CREATE INDEX idx_salary_worker_date ON salary_payment(worker_id, year, month);
 CREATE INDEX idx_ws_worker_date ON work_schedule(worker_id, shift_date);
 CREATE INDEX idx_leave_worker ON leave_request(worker_id);
+
+
+-- AUTH USERS TABLE
+CREATE TABLE IF NOT EXISTS users (
+    user_id       INT AUTO_INCREMENT PRIMARY KEY,
+    worker_id     INT,
+    username      VARCHAR(100) NOT NULL UNIQUE,
+    password_hash VARCHAR(255) NOT NULL,
+    role          ENUM('Manager','Admin','Cleaner') NOT NULL,
+    created_at    DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (worker_id) REFERENCES worker(worker_id) ON DELETE SET NULL
+);
