@@ -13,6 +13,7 @@ This system improves cleanliness, operational efficiency, workforce management a
 ## 🛠️ Technologies Used
 - MySQL 8.0+
 - MySQL Workbench
+- Postman (for testing)
 
 ## 🧱 Database Schema
 The system consists of the following main tables:
@@ -27,25 +28,34 @@ The system consists of the following main tables:
 | schedule          | Stores worker schedules                          |
 
 ## 🚀 Setup Instructions
-### 1️⃣ Run Schema File
-SOURCE schema.sql;
+### 1️⃣Step 1 — Import the database
+Open MySQL Workbench and run these files in order:
+1. schema.sql
+2. seed.sql
 
-This will:
-- Create university_db
-- Create all tables with constraints
+### 2️⃣Step 2 — Configure environment
+Open the backend folder, copy .env.example and rename it to .env
+Edit .env and fill in your MySQL password:
+```
+DB_PASSWORD=yourpassword
+```
 
-### 2️⃣ Insert Sample Data
-SOURCE seed.sql;
+### 3️⃣ Step 3 — Install dependencies
+```bash
+cd backend
+npm install
+```
 
-This will populate the database with test records.
+### 4️⃣ Step 4 — Start the server
+```bash
+npm run dev
+```
+Server runs at: http://localhost:5000
 
-### 3️⃣ Run Performance Analysis
-SOURCE performance.sql;
+### 5️⃣ Step 5 — View API documentation
+Open browser and go to: http://localhost:5000/api/docs
 
-This will:
-- Run EXPLAIN ANALYZE before indexing
-- Create indexes
-- Run EXPLAIN ANALYZE after indexing
+---
 
 ## 📊 Performance Optimization
 The project demonstrates query optimization using:
@@ -54,22 +64,51 @@ The project demonstrates query optimization using:
 
 🔹 Composite Indexes
 
-## 📈 Performance Analysis Results
-Using EXPLAIN ANALYZE, the following improvements were observed:
-1) Before indexing:
-- Full table scans (type: ALL)
-- Higher query cost
-- More rows examined
-- Slower execution
+## Default Login Credentials
+| Role    | Username       | Password    |
+|---------|----------------|-------------|
+| Manager | ali.manager    | manager123  |
+| Admin   | ahmed.admin    | admin123    |
+| Cleaner | usman.cleaner  | cleaner123  |
 
-2) After indexing:
-- Index-based lookups (type: ref, range)
-- Reduced rows scanned
-- Lower cost
-- Improved execution time
+---
 
-This confirms that proper indexing significantly enhances database performance and scalability.
+## Role Permissions
+| Endpoint                          | Manager | Admin | Cleaner |
+|-----------------------------------|---------|-------|---------|
+| POST /auth/login                  | ✅      | ✅    | ✅      |
+| POST /auth/register               | ✅      | ❌    | ❌      |
+| GET /workers                      | ✅      | ✅    | ❌      |
+| POST /workers                     | ✅      | ❌    | ❌      |
+| DELETE /workers/:id               | ✅      | ❌    | ❌      |
+| GET /dustbins                     | ✅      | ✅    | ✅      |
+| POST /dustbins                    | ✅      | ✅    | ❌      |
+| POST /waste-collections           | ✅      | ✅    | ✅      |
+| POST /maintenance                 | ✅      | ✅    | ✅      |
+| PUT /maintenance/:id              | ✅      | ✅    | ❌      |
+| GET /salary                       | ✅      | ❌    | ❌      |
+| POST /salary                      | ✅      | ❌    | ❌      |
+| POST /leave                       | ✅      | ✅    | ✅      |
+| PUT /leave/:id/approve            | ✅      | ❌    | ❌      |
 
+---
+
+## Transaction Scenarios
+1. POST /workers — Inserts worker + user account atomically. Rolls back both if either fails.
+2. POST /waste-collections — Inserts collection record + resets dustbin fill level atomically.
+3. POST /salary — Inserts salary payment + all components atomically. Rolls back if duplicate.
+
+---
+
+## API Endpoints Summary
+- Auth: POST /api/v1/auth/login, POST /api/v1/auth/register
+- Workers: GET/POST /api/v1/workers, GET/PUT/DELETE /api/v1/workers/:id
+- Dustbins: GET/POST /api/v1/dustbins, GET /api/v1/dustbins/full, PUT /api/v1/dustbins/:id
+- Waste: GET/POST /api/v1/waste-collections, GET /api/v1/waste-collections/report
+- Maintenance: GET/POST /api/v1/maintenance, GET /api/v1/maintenance/pending, PUT /api/v1/maintenance/:id
+- Salary: GET/POST /api/v1/salary, GET /api/v1/salary/worker/:id
+- Leave: GET/POST /api/v1/leave, PUT /api/v1/leave/:id/approve
+  
 ## 🔐 ACID Compliance
 The database ensures:
 - **Atomicity** – Transactions complete fully or not at all
