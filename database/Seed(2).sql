@@ -242,3 +242,9 @@ INSERT INTO salary_component (payment_id, component_type, amount) VALUES
 (3,'Basic',30000),
 (3,'Bonus',1000),
 (3,'Deduction',500);
+
+-- DEFAULT USERS 
+INSERT INTO users (worker_id, username, password_hash, role) VALUES
+(1, 'ali.manager',    ' $2b$10$wVn4fdUYyERpZbQ1hK11w.W.C9PnBanwrLn8TB7wAHO/ez2UnjDce',  'Manager'),
+(2, 'ahmed.admin',    '$2b$10$kYRzn6TU.Ty6DxzTrxDKkOT1KgjCzPNT/AMOmKt9g0aHxbs/JvJr6',    'Admin'),
+(3, 'usman.cleaner',  '$2b$10$BnU37.sxmHeWtPxE9lGRrO.VRXpMs29JObimialJK2oIfEv1fxuYq',  'Cleaner');
