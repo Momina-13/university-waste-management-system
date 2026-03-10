@@ -10,10 +10,14 @@ The University Waste Management System (UWMS) is a comprehensive software soluti
 
 This system improves cleanliness, operational efficiency, workforce management and real time monitoring of waste related activities.
 
+---
+
 ## 🛠️ Technologies Used
 - MySQL 8.0+
 - MySQL Workbench
 - Postman (for testing)
+
+---
 
 ## 🧱 Database Schema
 The system consists of the following main tables:
@@ -26,6 +30,9 @@ The system consists of the following main tables:
 | worker            | Stores worker details                            |
 | salary            | Stores salary information                        |
 | schedule          | Stores worker schedules                          |
+
+---
+
 
 ## 🚀 Setup Instructions
 ### 1️⃣Step 1 — Import the database
@@ -57,14 +64,8 @@ Open browser and go to: http://localhost:5000/api/docs
 
 ---
 
-## 📊 Performance Optimization
-The project demonstrates query optimization using:
 
-🔹 Single-Column Indexes
-
-🔹 Composite Indexes
-
-## Default Login Credentials
+## 🔑 Default Login Credentials
 | Role    | Username       | Password    |
 |---------|----------------|-------------|
 | Manager | ali.manager    | manager123  |
@@ -73,7 +74,7 @@ The project demonstrates query optimization using:
 
 ---
 
-## Role Permissions
+## 🛡️ Role Permissions
 | Endpoint                          | Manager | Admin | Cleaner |
 |-----------------------------------|---------|-------|---------|
 | POST /auth/login                  | ✅      | ✅    | ✅      |
@@ -93,14 +94,14 @@ The project demonstrates query optimization using:
 
 ---
 
-## Transaction Scenarios
+## ⚙️ Transaction Scenarios
 1. POST /workers — Inserts worker + user account atomically. Rolls back both if either fails.
 2. POST /waste-collections — Inserts collection record + resets dustbin fill level atomically.
 3. POST /salary — Inserts salary payment + all components atomically. Rolls back if duplicate.
 
 ---
 
-## API Endpoints Summary
+## 🌐 API Endpoints Summary
 - Auth: POST /api/v1/auth/login, POST /api/v1/auth/register
 - Workers: GET/POST /api/v1/workers, GET/PUT/DELETE /api/v1/workers/:id
 - Dustbins: GET/POST /api/v1/dustbins, GET /api/v1/dustbins/full, PUT /api/v1/dustbins/:id
@@ -108,6 +109,8 @@ The project demonstrates query optimization using:
 - Maintenance: GET/POST /api/v1/maintenance, GET /api/v1/maintenance/pending, PUT /api/v1/maintenance/:id
 - Salary: GET/POST /api/v1/salary, GET /api/v1/salary/worker/:id
 - Leave: GET/POST /api/v1/leave, PUT /api/v1/leave/:id/approve
+
+---
   
 ## 🔐 ACID Compliance
 The database ensures:
@@ -116,13 +119,7 @@ The database ensures:
 - **Isolation** – Concurrent transactions do not interfere
 - **Durability** – Committed data persists even after system failure
 
-## 🎯 Key Learning Outcomes
-- Relational schema design
-- Foreign key implementation
-- Query optimization
-- Index creation strategies
-- Execution plan analysis using EXPLAIN ANALYZE
-- Understanding ACID properties in MySQL
+---
 
 ## 👨‍💻 Author
 - University Database Systems Project
