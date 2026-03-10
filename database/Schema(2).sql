@@ -1,5 +1,4 @@
-DROP DATABASE IF EXISTS university_db;
-CREATE DATABASE university_db;
+
 USE university_db;
 
 
@@ -356,7 +355,6 @@ CREATE INDEX idx_ws_worker_date ON work_schedule(worker_id, shift_date);
 CREATE INDEX idx_leave_worker ON leave_request(worker_id);
 
 
--- AUTH USERS TABLE
 CREATE TABLE IF NOT EXISTS users (
     user_id       INT AUTO_INCREMENT PRIMARY KEY,
     worker_id     INT,
@@ -366,3 +364,9 @@ CREATE TABLE IF NOT EXISTS users (
     created_at    DATETIME DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (worker_id) REFERENCES worker(worker_id) ON DELETE SET NULL
 );
+
+USE university_db;
+SELECT COUNT(*) FROM building;
+SELECT COUNT(*) FROM dustbin;
+SELECT COUNT(*) FROM worker;
+SELECT user_id, username, role FROM users;
