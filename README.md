@@ -105,8 +105,25 @@ Project01/
 ---
 
 ## 🏗️ System Architecture
+![System Arch](media/sys-arc.png)
+![System Arch](media/sys-arc(1).png)
+![System Arch](media/sys-arc(2).png)
 
 ---
+
+## UI Examples
+
+### Login Page
+![Login](media/login.png)
+Entry point for all users. Validates credentials via bcrypt, issues JWT on success.
+
+### Analytics Dashboard  
+![Dashboard](media/dashboard.png)
+Live charts showing waste data, dustbin status distribution, and fill levels by bin type.
+
+### Transaction Demo — Rollback
+![Transaction](media/transaction.png)
+Red banner confirms transaction was rolled back when duplicate CNIC detected.
 
 ## ⚙️ Setup & Installation
 
